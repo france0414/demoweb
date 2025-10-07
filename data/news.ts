@@ -1,0 +1,80 @@
+// data/news.ts
+// 這個檔案專門存放與新聞相關的內容資料
+
+export const MainNewsContent = {
+  title: "本週頭條",
+  articles: [
+    {
+      id: 1,
+      title: "Gemini CLI 發布新版本",
+      summary: "帶來更強大的程式碼生成能力，讓開發者效率倍增。",
+      imageUrl: "/images/news-1.jpg",
+      date: "2023-10-26",
+      category: ["AI", "開發工具"],
+      link: "/news/gemini-cli-update",
+    },
+    {
+      id: 2,
+      title: "Tailwind CSS v4 預覽",
+      summary: "引擎重寫，效能提升，帶來更流暢的開發體驗。",
+      imageUrl: "/images/news-2.jpg",
+      date: "2023-10-25",
+      category: ["前端", "CSS"],
+      link: "/news/tailwind-v4-preview",
+    },
+    {
+      id: 3,
+      title: "AI 助手提升開發效率",
+      summary: "智慧工具讓程式設計更輕鬆，減少重複性工作。",
+      imageUrl: "/images/news-3.jpg",
+      date: "2023-10-24",
+      category: ["AI", "生產力"],
+      link: "/news/ai-dev-efficiency",
+    },
+    {
+      id: 4,
+      title: "前端框架新趨勢",
+      summary: "React, Vue, Angular 競爭激烈，新技術層出不窮。",
+      imageUrl: "/images/news-4.jpg",
+      date: "2023-10-23",
+      category: ["前端", "框架"],
+      link: "/news/frontend-trends",
+    },
+    {
+      id: 5,
+      title: "後端服務無伺服器化",
+      summary: "Serverless 架構降低維護成本，讓開發者專注於業務邏輯。",
+      imageUrl: "/images/news-5.jpg",
+      date: "2023-10-22",
+      category: ["後端", "雲端"],
+      link: "/news/serverless-backend",
+    },
+    {
+      id: 6,
+      title: "區塊鏈技術應用廣泛",
+      summary: "從金融到供應鏈，區塊鏈技術的潛力無限。",
+      imageUrl: "/images/news-6.jpg",
+      date: "2023-10-21",
+      category: ["區塊鏈", "科技"],
+      link: "/news/blockchain-applications",
+    },
+    {
+      id: 7,
+      title: "網路安全威脅日益增加",
+      summary: "企業需加強防禦措施，保護敏感數據。",
+      imageUrl: "/images/news-7.jpg",
+      date: "2023-10-20",
+      category: ["資安", "網路"],
+      link: "/news/cybersecurity-threats",
+    },
+    {
+      id: 8,
+      title: "行動應用市場持續成長",
+      summary: "跨平台開發成為主流，滿足用戶多樣化需求。",
+      imageUrl: "/images/news-8.jpg",
+      date: "2023-10-19",
+      category: ["行動", "開發"],
+      link: "/news/mobile-app-growth",
+    },
+  ]
+};
