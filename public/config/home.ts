@@ -3,6 +3,7 @@ interface BlockConfig {
   name: string;
   version: string;
   dataKey: string;
+  navigationDataKey?: string;
 }
 
 // 定義首頁配置的介面
@@ -18,8 +19,9 @@ export const HomePageConfig: HomePageConfigType = {
     {
       name: "HeaderBlock",
       // 可選版本: "default" | "minimal"
-      version: "minimal",
-      dataKey: "defaultHeaderData"
+      version: "default",
+      dataKey: "defaultHeaderData",
+      navigationDataKey: "PrimaryNavigation"
     },
     {
       name: "BannerBlock",
@@ -54,7 +56,7 @@ export const HomePageConfig: HomePageConfigType = {
     {
       name: "NewsBlock",
       // 可選版本: "grid" | "list" | "carousel"
-      version: "carousel", 
+      version: "carousel",
       dataKey: "MainNewsContent"
     },
     {
