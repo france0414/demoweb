@@ -5,6 +5,6 @@ export interface HeaderData {
 
 // 現在只保留一組固定的 Header 內容
 export const defaultHeaderData: HeaderData = {
-  logoUrl: '/images/logo-dark.png',
+  logoUrl: 'https://picsum.photos/800/600?random=5',
   ctaButton: { label: '立即諮詢', href: '/contact' },
 };

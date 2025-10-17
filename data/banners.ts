@@ -10,7 +10,7 @@ export interface BannerItem {
 export const MainBannerContent: BannerItem[] = [
   {
     id: 'b1',
-    imageUrl: '/images/banner-1.jpg',
+    imageUrl: 'https://picsum.photos/800/600?random=2',
     title: '探索無限可能',
     description: '我們的智慧積木系統，讓您的網站建構前所未有的簡單與強大。',
     ctaText: '立即開始',
@@ -18,7 +18,7 @@ export const MainBannerContent: BannerItem[] = [
   },
   {
     id: 'b2',
-    imageUrl: '/images/banner-2.jpg',
+    imageUrl: 'https://picsum.photos/800/600?random=3',
     title: '客製化您的品牌',
     description: '多樣化的模組與彈性配置，完美符合您的品牌形象。',
     ctaText: '了解更多',
@@ -26,7 +26,7 @@ export const MainBannerContent: BannerItem[] = [
   },
   {
     id: 'b3',
-    imageUrl: '/images/banner-3.jpg',
+    imageUrl: 'https://picsum.photos/800/600?random=4',
     title: '響應式設計，無縫體驗',
     description: '無論任何裝置，您的網站都能提供最佳瀏覽體驗。',
     ctaText: '查看案例',

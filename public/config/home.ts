@@ -30,11 +30,6 @@ export const HomePageConfig: HomePageConfigType = {
       dataKey: "MainBannerContent"
     },
     {
-      name: "IndustrySolutionBlock",
-      version: "interactive-fullscreen",
-      dataKey: "MainIndustrySolutions"
-    },
-    {
       name: "FeaturesBlock",
       // 可選版本: "default" | "side-by-side" | "icon-grid"
       version: "default",
@@ -51,6 +46,11 @@ export const HomePageConfig: HomePageConfigType = {
       // 可選版本: "default" | "side-by-side" | "icon-grid"
       version: "icon-grid",
       dataKey: "SideBySideFeaturesContent"
+    },
+    {
+      name: "IndustrySolutionBlock",
+      version: "interactive-fullscreen",
+      dataKey: "MainIndustrySolutions"
     },
     {
       name: "ProductListBlock",

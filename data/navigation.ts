@@ -16,7 +16,7 @@ export interface NavigationContent {
 }
 
 export const PrimaryNavigation: NavigationContent = {
-  logoUrl: '/images/logo-dark.png',
+  logoUrl: 'https://picsum.photos/800/600?random=10',
   mainNav: [
     { label: '產品中心', href: '/products' },
     { label: '最新消息', href: '/news' },
