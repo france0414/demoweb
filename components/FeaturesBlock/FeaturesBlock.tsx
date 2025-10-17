@@ -1,12 +1,14 @@
 import React from 'react';
 import DynamicIcon from '@/components/shared/DynamicIcon';
 import { FeaturesContent, FeatureItem } from '@/data/features';
+import { NavigationContent } from '@/data/navigation';
 import FeaturesSideBySide from './FeaturesSideBySide';
 import FeaturesIconGrid from './FeaturesIconGrid'; // <-- 新增 FeaturesIconGrid 匯入
 
 interface FeaturesBlockProps {
   version: 'default' | 'side-by-side' | 'icon-grid'; // <-- 更新 version 類型
   data: FeaturesContent;
+  navigationData?: NavigationContent;
 }
 
 const FeaturesBlock: React.FC<FeaturesBlockProps> = ({ version, data }) => {
@@ -41,7 +43,7 @@ const FeaturesBlock: React.FC<FeaturesBlockProps> = ({ version, data }) => {
     default:
       return (
         <div className="bg-red-100 text-red-700 p-4 my-8 mx-auto max-w-4xl rounded-md">
-          錯誤：FeaturesBlock 不支援 "{version}" 這個版型。
+          錯誤：FeaturesBlock 不支援 &quot;{version}&quot; 這個版型。
         </div>
       );
   }

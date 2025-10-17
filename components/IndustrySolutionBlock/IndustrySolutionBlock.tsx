@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { IndustrySolutionContent, IndustryItem } from '@/data/industrySolutions';
+import { IndustrySolutionContent } from '@/data/industrySolutions';
+import { NavigationContent } from '@/data/navigation';
 import DynamicIcon from '@/components/shared/DynamicIcon';
 
 interface IndustrySolutionBlockProps {
+  version?: string;
   data: IndustrySolutionContent;
+  navigationData?: NavigationContent;
 }
 
 const IndustrySolutionBlock: React.FC<IndustrySolutionBlockProps> = ({ data }) => {
@@ -63,10 +65,8 @@ return (
                     </div>
                     
                     {/* CTA 按鈕 */}
-                    <Link href={activeItem.ctaHref} passHref>
-                        <button className="mt-12 px-10 py-4 bg-red-600 hover:bg-red-700 rounded-full font-bold text-lg transition-transform duration-300 hover:scale-110 shadow-lg">
-                            了解更多
-                        </button>
+                    <Link href={activeItem.ctaHref} className="mt-12 px-10 py-4 bg-red-600 hover:bg-red-700 rounded-full font-bold text-lg transition-transform duration-300 hover:scale-110 shadow-lg">
+                        {data.ctaText}
                     </Link>
                 </div>
             </div>
@@ -75,7 +75,7 @@ return (
         {/* Card Grid Version (Mobile/Tablet) */}
         <div className="block lg:hidden">
             <div className="container mx-auto p-4 py-12">
-                <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">應用產業解決方案</h2>
+                <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">{data.mobileTitle}</h2>
                 <div className="grid grid-cols-1 gap-6">
                     {data.items.map((item, index) => (
                         <Link key={index} href={item.ctaHref} passHref>

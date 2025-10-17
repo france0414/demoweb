@@ -26,7 +26,7 @@ export const HomePageConfig: HomePageConfigType = {
     {
       name: "BannerBlock",
       // 可選版本: "static" | "carousel"
-      version: "carousel",
+      version: "static",
       dataKey: "MainBannerContent"
     },
     {

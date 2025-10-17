@@ -1,5 +1,5 @@
 import BlockRenderer from '@/components/BlockRenderer';
-import { HomePageConfig } from '@/public/config/home'; // 直接從 TypeScript 檔案匯入配置
+import { HomePageConfig, BlockConfig } from '@/public/config/home'; // 直接從 TypeScript 檔案匯入配置
 
 export default async function Home() {
   // 直接使用從 HomePageConfig 匯入的 blocks
@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
-      {blocks.map((block: any, index: number) => (
+      {blocks.map((block: BlockConfig, index: number) => (
         <BlockRenderer key={index} block={block} />
       ))}
 

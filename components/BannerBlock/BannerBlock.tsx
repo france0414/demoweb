@@ -5,16 +5,18 @@ import Image from 'next/image';
 import SwiperWrapper from '@/components/shared/SwiperWrapper';
 import { SwiperSlide } from 'swiper/react';
 import { BannerItem } from '@/data/banners'; // 匯入 BannerItem 類型
+import { NavigationContent } from '@/data/navigation';
 
 // 為了自動播放，需要匯入 Autoplay 模組
 import { Autoplay } from 'swiper/modules';
 
 interface BannerBlockProps {
-  version: 'static' | 'carousel';
+  version?: string;
   data: BannerItem[]; // 期望接收 BannerItem 陣列
+  navigationData?: NavigationContent;
 }
 
-const BannerBlock: React.FC<BannerBlockProps> = ({ version, data }) => {
+const BannerBlock: React.FC<BannerBlockProps> = ({ data }) => {
   if (!data || data.length === 0) {
     return null; // 如果沒有資料，則不渲染任何內容
   }
@@ -41,14 +43,6 @@ const BannerBlock: React.FC<BannerBlockProps> = ({ version, data }) => {
       </div>
     </div>
   );
-
-  if (version === 'static') {
-    return (
-      <section className="relative w-full overflow-hidden">
-        {renderBannerItem(data[0])}
-      </section>
-    );
-  }
 
   // Carousel version
   return (

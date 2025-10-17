@@ -5,21 +5,13 @@ import ProductGrid from './ProductGrid';
 import ProductCarousel from './ProductCarousel';
 
 // --- 介面定義 ---
-interface Product {
-  id: number | string;
-  name: string;
-  price: string;
-  imageUrl: string;
-}
-
-interface ProductListData {
-  title: string;
-  products: Product[];
-}
+import { ProductContent } from '@/data/products';
+import { NavigationContent } from '@/data/navigation';
 
 interface ProductListBlockProps {
   version: 'grid' | 'carousel';
-  data: ProductListData;
+  data: ProductContent;
+  navigationData?: NavigationContent;
 }
 // ---------------------------
 

@@ -1,18 +1,19 @@
 'use client';
 
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { SwiperOptions } from 'swiper/types';
 
 interface SwiperWrapperProps {
   children: React.ReactNode;
   // 可以根據需要添加更多 Swiper 的 props
   spaceBetween?: number;
   slidesPerView?: number | 'auto';
-  breakpoints?: { [key: string]: any };
+  breakpoints?: { [width: number]: SwiperOptions; [ratio: string]: SwiperOptions; };
   navigation?: boolean;
   pagination?: boolean | { clickable: true };
   loop?: boolean;
