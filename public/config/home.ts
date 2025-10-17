@@ -30,6 +30,11 @@ export const HomePageConfig: HomePageConfigType = {
       dataKey: "MainBannerContent"
     },
     {
+      name: "IndustrySolutionBlock",
+      version: "interactive-fullscreen",
+      dataKey: "MainIndustrySolutions"
+    },
+    {
       name: "FeaturesBlock",
       // 可選版本: "default" | "side-by-side" | "icon-grid"
       version: "default",

@@ -9,6 +9,7 @@ import AboutBlock from '@/components/AboutBlock/AboutBlock';
 import ProductListBlock from '@/components/ProductListBlock/ProductListBlock';
 import BannerBlock from '@/components/BannerBlock/BannerBlock';
 import FeaturesBlock from '@/components/FeaturesBlock/FeaturesBlock';
+import IndustrySolutionBlock from '@/components/IndustrySolutionBlock/IndustrySolutionBlock';
 
 // 匯入所有可能會用到的資料來源
 import * as HeaderData from '@/data/headerContent';
@@ -18,6 +19,7 @@ import * as ProductData from '@/data/products';
 import * as BannerData from '@/data/banners';
 import * as FeaturesData from '@/data/features';
 import * as NavigationData from '@/data/navigation';
+import * as IndustrySolutionData from '@/data/industrySolutions';
 
 // 元件對應表
 const BlockComponentMap: { [key: string]: React.FC<any> } = {
@@ -27,6 +29,7 @@ const BlockComponentMap: { [key: string]: React.FC<any> } = {
   ProductListBlock: ProductListBlock,
   BannerBlock: BannerBlock,
   FeaturesBlock: FeaturesBlock,
+  IndustrySolutionBlock: IndustrySolutionBlock,
 };
 
 // 資料對應表
@@ -39,6 +42,7 @@ const BlockDataMap: { [key: string]: any } = {
   MainFeaturesContent: FeaturesData.MainFeaturesContent,
   SideBySideFeaturesContent: FeaturesData.SideBySideFeaturesContent,
   PrimaryNavigation: NavigationData.PrimaryNavigation,
+  MainIndustrySolutions: IndustrySolutionData.MainIndustrySolutions,
 };
 
 // BlockConfig 介面 (從 app/page.tsx 移過來)
