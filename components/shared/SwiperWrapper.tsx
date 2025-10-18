@@ -8,6 +8,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { SwiperOptions } from 'swiper/types';
 
+import { Autoplay } from 'swiper/modules';
+
 interface SwiperWrapperProps {
   children: React.ReactNode;
   // 可以根據需要添加更多 Swiper 的 props
@@ -18,6 +20,8 @@ interface SwiperWrapperProps {
   pagination?: boolean | { clickable: true };
   loop?: boolean;
   className?: string;
+  modules?: any[]; // Add modules prop
+  autoplay?: any; // Add autoplay prop
 }
 
 const SwiperWrapper: React.FC<SwiperWrapperProps> = ({
@@ -29,10 +33,12 @@ const SwiperWrapper: React.FC<SwiperWrapperProps> = ({
   pagination = { clickable: true },
   loop = true,
   className = "!pb-10",
+  modules = [Navigation, Pagination, Autoplay], // Default modules including Autoplay
+  autoplay, // Destructure autoplay prop
 }) => {
   return (
     <Swiper
-      modules={[Navigation, Pagination]}
+      modules={modules}
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
       navigation={navigation}
@@ -40,6 +46,7 @@ const SwiperWrapper: React.FC<SwiperWrapperProps> = ({
       loop={loop}
       breakpoints={breakpoints}
       className={className}
+      autoplay={autoplay} // Pass autoplay prop to Swiper
     >
       {children}
     </Swiper>

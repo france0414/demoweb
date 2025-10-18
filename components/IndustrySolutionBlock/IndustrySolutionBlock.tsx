@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { IndustrySolutionContent } from '@/data/industrySolutions';
+import { MainIndustrySolutions, IndustrySolutionItem } from '@/data/industrySolutions';
 import { NavigationContent } from '@/data/navigation';
 import DynamicIcon from '@/components/shared/DynamicIcon';
 
 interface IndustrySolutionBlockProps {
   version?: string;
-  data: IndustrySolutionContent;
+  data: typeof MainIndustrySolutions; // Updated type
   navigationData?: NavigationContent;
 }
 

@@ -1,58 +1,63 @@
-export interface IndustryItem {
+export interface IndustrySolutionItem {
+  id: string;
+  iconName: string; // Changed to iconName
   title: string;
   description: string;
-  iconName: string; // Lucide Icon name
-  largeImageUrl: string;
-  width: number;
-  height: number;
-  ctaHref: string;
+  ctaHref: string; // Changed to ctaHref
+  largeImageUrl: string; // Added largeImageUrl
 }
 
-export interface IndustrySolutionContent {
-  mobileTitle: string;
-  ctaText: string;
-  items: IndustryItem[];
-}
-
-export const MainIndustrySolutions: IndustrySolutionContent = {
-  mobileTitle: "應用產業解決方案",
-  ctaText: "了解更多",
+export const MainIndustrySolutions = {
   items: [
     {
-      title: '智慧建築',
-      description: '為現代建築提供自動化控制與能源管理解決方案。',
-      iconName: 'Building',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=2',
-      width: 1920,
-      height: 1080,
-      ctaHref: '/solutions/smart-building',
+      id: 'is1',
+      iconName: 'Telescope',
+      title: '智慧製造',
+      description: '透過物聯網與大數據分析，提升生產效率與品質。',
+      ctaHref: '/solutions/smart-manufacturing',
+      largeImageUrl: 'https://picsum.photos/1920/1080?random=1',
     },
     {
-      title: '工業 4.0',
-      description: '透過物聯網與大數據分析，實現智慧工廠的生產優化。',
-      iconName: 'Factory',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=3',
-      width: 1920,
-      height: 1080,
-      ctaHref: '/solutions/industry-4-0',
-    },
-    {
-      title: '醫療照護',
-      description: '提供遠程監控與智慧病房管理，提升醫療服務品質。',
-      iconName: 'Hospital',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=4',
-      width: 1920,
-      height: 1080,
+      id: 'is2',
+      iconName: 'HeartHandshake',
+      title: '醫療健康',
+      description: '數位化病歷管理與遠距醫療服務，優化患者體驗。',
       ctaHref: '/solutions/healthcare',
+      largeImageUrl: 'https://picsum.photos/1920/1080?random=2',
     },
     {
-      title: '零售餐飲',
-      description: '透過智慧POS與客戶關係管理，優化消費體驗。',
-      iconName: 'ShoppingCart',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=8',
-      width: 1920,
-      height: 1080,
-      ctaHref: '/solutions/retail',
+      id: 'is3',
+      iconName: 'GraduationCap',
+      title: '教育科技',
+      description: '互動式學習平台與個性化教學，激發學生潛力。',
+      ctaHref: '/solutions/education-tech',
+      largeImageUrl: 'https://picsum.photos/1920/1080?random=3',
+    },
+    {
+      id: 'is4',
+      iconName: 'Store',
+      title: '智慧零售',
+      description: '精準顧客分析與智能庫存管理，創造全新購物體驗。',
+      ctaHref: '/solutions/smart-retail',
+      largeImageUrl: 'https://picsum.photos/1920/1080?random=4',
+    },
+    {
+      id: 'is5',
+      iconName: 'Banknote',
+      title: '金融服務',
+      description: '安全高效的數位金融解決方案，助力企業轉型。',
+      ctaHref: '/solutions/finance',
+      largeImageUrl: 'https://picsum.photos/1920/1080?random=5',
+    },
+    {
+      id: 'is6',
+      iconName: 'Car',
+      title: '智慧交通',
+      description: '優化交通流量，提升出行效率與安全性。',
+      ctaHref: '/solutions/smart-transportation',
+      largeImageUrl: 'https://picsum.photos/1920/1080?random=6',
     },
   ],
+  ctaText: '查看所有解決方案',
+  mobileTitle: '我們的產業解決方案',
 };
