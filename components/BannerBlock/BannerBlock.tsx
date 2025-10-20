@@ -37,9 +37,11 @@ interface BannerBlockProps {
   version?: string;
   data: BannerItem[]; // 期望接收 BannerItem 陣列
   navigationData?: NavigationContent;
+  transitionEffect?: 'slide' | 'fade'; // New prop for transition effect
+  transitionDuration?: number; // New prop for transition duration
 }
 
-const BannerBlock: React.FC<BannerBlockProps> = ({ data }) => {
+const BannerBlock: React.FC<BannerBlockProps> = ({ data, transitionEffect, transitionDuration }) => {
   if (!data || data.length === 0) {
     return null; // 如果沒有資料，則不渲染任何內容
   }
@@ -147,8 +149,10 @@ const BannerBlock: React.FC<BannerBlockProps> = ({ data }) => {
         navigation={true}
         pagination={{ clickable: true }}
         loop={true}
-        autoplay={{ delay: 100000, disableOnInteraction: false }} // 自動播放設定
+        autoplay={{ delay: 5000, disableOnInteraction: false }} // 自動播放設定
         className={swiperHeightClass}
+        effect={transitionEffect} // Pass transitionEffect to SwiperWrapper
+        speed={transitionDuration} // Pass transitionDuration to SwiperWrapper (maps to Swiper's speed prop)
       >
         {data.map((item, index) => (
           <SwiperSlide key={item.id}>

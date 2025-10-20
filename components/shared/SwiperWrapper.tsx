@@ -8,7 +8,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { SwiperOptions } from 'swiper/types';
 
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, EffectFade } from 'swiper/modules'; // Import EffectFade
+import 'swiper/css/effect-fade'; // Import fade effect css
 
 interface SwiperWrapperProps {
   children: React.ReactNode;
@@ -22,6 +23,8 @@ interface SwiperWrapperProps {
   className?: string;
   modules?: any[]; // Add modules prop
   autoplay?: any; // Add autoplay prop
+  effect?: 'slide' | 'fade'; // Add effect prop
+  speed?: number; // New prop for transition duration
 }
 
 const SwiperWrapper: React.FC<SwiperWrapperProps> = ({
@@ -35,10 +38,17 @@ const SwiperWrapper: React.FC<SwiperWrapperProps> = ({
   className = "!pb-10",
   modules = [Navigation, Pagination, Autoplay], // Default modules including Autoplay
   autoplay, // Destructure autoplay prop
+  effect = 'slide', // Default effect to slide
+  speed, // Destructure speed prop
 }) => {
+  const swiperModules = [...modules];
+  if (effect === 'fade' && !swiperModules.includes(EffectFade)) {
+    swiperModules.push(EffectFade);
+  }
+
   return (
     <Swiper
-      modules={modules}
+      modules={swiperModules}
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
       navigation={navigation}
@@ -47,6 +57,9 @@ const SwiperWrapper: React.FC<SwiperWrapperProps> = ({
       breakpoints={breakpoints}
       className={className}
       autoplay={autoplay} // Pass autoplay prop to Swiper
+      effect={effect === 'fade' ? 'fade' : undefined} // Apply fade effect
+      fadeEffect={effect === 'fade' ? { crossFade: true } : undefined} // Crossfade for fade effect
+      speed={speed} // Pass speed prop to Swiper
     >
       {children}
     </Swiper>

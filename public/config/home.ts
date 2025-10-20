@@ -1,5 +1,5 @@
 // 定義積木配置的介面
-interface BlockConfig {
+export interface BlockConfig {
   name: string;
   version: string;
   dataKey: string;

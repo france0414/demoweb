@@ -24,6 +24,7 @@ export interface FeaturesContent {
   title: string;
   subtitle: string;
   features: FeatureItem[];
+  sideImage?: string; // New property for the side image
 }
 
 export const MainFeaturesContent: FeaturesContent = {
@@ -85,10 +86,11 @@ export const MainFeaturesContent: FeaturesContent = {
 export const SideBySideFeaturesContent: FeaturesContent = {
   title: "我們的特色服務",
   subtitle: "專為您的業務量身打造，提供卓越的解決方案。",
+  sideImage: 'https://picsum.photos/800/600?random=100', // Dedicated image for the side
   features: [
     {
       id: 's1',
-      iconName: 'Settings',
+      iconName: 'Settings', // Reverted to iconName
       title: '客製化解決方案',
       description: '根據您的獨特需求，提供量身打造的軟體服務。',
     },
@@ -100,7 +102,7 @@ export const SideBySideFeaturesContent: FeaturesContent = {
     },
     {
       id: 's3',
-      iconName: 'Users',
+      iconName: 'Users', // Reverted to iconName
       title: '使用者體驗設計',
       description: '以使用者為中心，打造直觀、流暢的數位體驗。',
     },

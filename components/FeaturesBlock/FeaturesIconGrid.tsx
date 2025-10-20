@@ -15,15 +15,16 @@ const FeaturesIconGrid: React.FC<FeaturesIconGridProps> = ({ data }) => {
         <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">{title}</h2>
         <p className="text-xl text-gray-600 text-center mb-12">{subtitle}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature: FeatureItem) => (
-            <div key={feature.id} className="flex items-start gap-4 p-6 rounded-lg shadow-md bg-gray-50">
+            <div key={feature.id} className="bg-white p-6 gap-3 rounded-lg shadow-md flex  items-center ">
               <div className="flex-shrink-0 p-3 rounded-full bg-indigo-100">
-                <DynamicIcon iconName={feature.iconName} imageUrl={feature.imageUrl} className="w-8 h-8 text-indigo-600" />
+                  {feature.iconName && <DynamicIcon iconName={feature.iconName} className="w-10 h-10 text-indigo-600" />}
+                  {feature.imageUrl && <img src={feature.imageUrl} alt={feature.title} className="w-10 h-10 rounded-full object-cover" />}
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">{feature.title}</h3>
-                <p className="text-gray-600 text-base">{feature.description}</p>
+               <div className="flex-grow">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
               </div>
             </div>
           ))}
@@ -32,5 +33,8 @@ const FeaturesIconGrid: React.FC<FeaturesIconGridProps> = ({ data }) => {
     </div>
   );
 };
+
+
+
 
 export default FeaturesIconGrid;
