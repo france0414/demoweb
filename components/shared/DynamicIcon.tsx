@@ -28,13 +28,12 @@ const DynamicIcon: React.FC<DynamicIconProps> = ({ iconName, imageUrl, className
       return <LucideIconComponent className={combinedClasses} />;
     } else {
       console.warn(`Lucide Icon "${iconName}" not found.`);
-      // 如果 Lucide Icon 不存在，也渲染一個空白 div 作為回退
-      return <div className={combinedClasses} />;
+      return null; // 如果 Lucide Icon 不存在，返回 null
     }
   }
 
-  // 如果沒有提供 iconName 也沒有 imageUrl，則渲染一個空白 div 作為安全回退
-  return <div className={combinedClasses} />;
+  // 如果沒有提供 iconName 也沒有 imageUrl，則返回 null
+  return null;
 };
 
 export default DynamicIcon;

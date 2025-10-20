@@ -1,6 +1,6 @@
 export interface IndustrySolutionItem {
   id: string;
-  iconName: string; // Changed to iconName
+  iconName?: string; // Changed to optional
   title: string;
   description: string;
   ctaHref: string; // Changed to ctaHref

@@ -29,6 +29,8 @@ export const PrimaryNavigation: NavigationContent = {
       ],
     },
     { label: '聯絡詢價', href: '/contact' },
+    { label: 'Tabs Showcase', href: '/tabs-showcase' },
+    { label: 'Industry Showcase', href: '/industry-showcase' },
   ],
   ctaButton: { label: '立即諮詢', href: '/contact' },
 };
