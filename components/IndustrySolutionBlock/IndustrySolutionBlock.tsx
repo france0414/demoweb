@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { MainIndustrySolutions, IndustrySolutionItem } from '@/data/industrySolutions';
+import { MainIndustrySolutions } from '@/data/industrySolutions';
 import { NavigationContent } from '@/data/navigation';
 import DynamicIcon from '@/components/shared/DynamicIcon';
 import TabsBlock from '@/components/TabsBlock/TabsBlock'; // 導入 TabsBlock
@@ -48,16 +48,16 @@ const IndustrySolutionBlock: React.FC<IndustrySolutionBlockProps> = ({
   if (version === 'tabs') {
     const tabData = transformToTabData(data);
     return (
-      <div className="container mx-auto px-4 py-12">
+      <section className="container mx-auto px-4 py-12">
         <TabsBlock tabs={tabData} position="left" interaction={tabInteraction} />
-      </div>
+      </section>
     );
   }
 
   // 如果 version 是 'carousel'，渲染 SwiperWrapper
   if (version === 'carousel') {
     return (
-      <div className="py-12 bg-gray-100">
+      <section className="py-12 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
             {data.mobileTitle || "我們的產業解決方案"}
@@ -94,17 +94,17 @@ const IndustrySolutionBlock: React.FC<IndustrySolutionBlockProps> = ({
             ))}
           </SwiperWrapper>
         </div>
-      </div>
+      </section>
     );
   }
 
   // --- 以下是 version 'default' 的原始程式碼 ---
   return (
-    <div>
+    <section>
         {/* Interactive Fullscreen Version (Desktop) */}
         <div className="hidden lg:block">
             {/* 這是整個互動區塊的主容器：相對定位 + 全屏高度 */}
-            <div className="relative w-full h-screen text-white flex flex-col items-center justify-center p-8">
+            <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] text-white flex flex-col items-center justify-center p-8">
 
                 {/* 1. 背景圖片與遮罩區塊 */}
                 {/* 使用絕對定位，讓所有圖片疊加，並根據 activeIndex 顯示 */}
@@ -182,7 +182,7 @@ const IndustrySolutionBlock: React.FC<IndustrySolutionBlockProps> = ({
                 </div>
             </div>
         </div>
-    </div>
+    </section>
   );
 };
 

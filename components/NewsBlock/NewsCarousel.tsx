@@ -28,7 +28,7 @@ const NewsCarousel: React.FC<NewsCarouselProps> = ({ data }) => {
   const { title, articles } = data;
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md">
+    <section className="bg-white p-8 rounded-lg shadow-md">
       <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">{title}</h2>
       <SwiperWrapper
         spaceBetween={24}
@@ -50,7 +50,7 @@ const NewsCarousel: React.FC<NewsCarouselProps> = ({ data }) => {
           </SwiperSlide>
         ))}
       </SwiperWrapper>
-    </div>
+    </section>
   );
 };
 

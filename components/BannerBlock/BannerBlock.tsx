@@ -22,16 +22,6 @@ const getContentPositionClasses = (position?: BannerItem['contentPosition']) => 
   }
 };
 
-// Statically define possible overlay classes for Tailwind JIT to pick up
-const TAILWIND_OVERLAY_CLASSES = [
-  'bg-black/0', 'bg-black/10', 'bg-black/20', 'bg-black/30', 'bg-black/40', 'bg-black/50',
-  'bg-black/60', 'bg-black/70', 'bg-black/80', 'bg-black/90', 'bg-black/100',
-  'bg-white/0', 'bg-white/10', 'bg-white/20', 'bg-white/30', 'bg-white/40', 'bg-white/50',
-  'bg-white/60', 'bg-white/70', 'bg-white/80', 'bg-white/90', 'bg-white/100',
-  'bg-blue-600/0', 'bg-blue-600/10', 'bg-blue-600/20', 'bg-blue-600/30', 'bg-blue-600/40', 'bg-blue-600/50',
-  'bg-blue-600/60', 'bg-blue-600/70', 'bg-blue-600/80', 'bg-blue-600/90', 'bg-blue-600/100',
-  // Add other colors as needed
-];
 
 interface BannerBlockProps {
   version?: string;

@@ -17,13 +17,6 @@ export const HomePageConfig: HomePageConfigType = {
   pageTitle: "首頁 - 智慧型積木系統",
   blocks: [
     {
-      name: "HeaderBlock",
-      // 可選版本: "default" | "minimal"
-      version: "default",
-      dataKey: "defaultHeaderData",
-      navigationDataKey: "PrimaryNavigation"
-    },
-    {
       name: "BannerBlock",
       // 可選版本: "static" | "carousel"
       version: "static",

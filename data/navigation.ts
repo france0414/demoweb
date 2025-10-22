@@ -28,6 +28,7 @@ export const PrimaryNavigation: NavigationContent = {
         { label: '核心優勢', href: '/about/features' },
       ],
     },
+    { label: '常見問題', href: '/faq' },
     { label: '聯絡詢價', href: '/contact' },
     { label: 'Tabs Showcase', href: '/tabs-showcase' },
     { label: 'Industry Showcase', href: '/industry-showcase' },

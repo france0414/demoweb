@@ -212,23 +212,43 @@ const BannerShowcase: React.FC = () => {
       <h1 className="text-5xl font-extrabold text-center mb-8 text-gray-900">BannerBlock 組件展示</h1>
 
       <div className="mb-16 p-6 bg-blue-50 border-l-4 border-blue-400 text-blue-800 rounded-md">
-        <h2 className="text-2xl font-bold mb-2">輪播轉場模式說明 (transitionEffect)</h2>
-        <p className="mb-2">
-          在 `BannerBlock` 組件中，您可以透過 `transitionEffect` 屬性來控制輪播的轉場模式。這個屬性接受兩個值：
-        </p>
-        <ul className="list-disc list-inside ml-4">
-          <li>
-            <strong>`"slide"` (滑動)</strong>: 這是預設的轉場效果，輪播會以滑動的方式切換到下一張圖片。
-            <pre className="bg-blue-100 p-2 rounded-md text-sm mt-1"><code>&lt;BannerBlock data={'{...}'} transitionEffect="slide" /&gt;</code></pre>
-          </li>
-          <li>
-            <strong>`"fade"` (淡入淡出)</strong>: 輪播會以淡入淡出的方式切換圖片，而不是滑動。
-            <pre className="bg-blue-100 p-2 rounded-md text-sm mt-1"><code>&lt;BannerBlock data={'{...}'} transitionEffect="fade" /&gt;</code></pre>
-          </li>
-        </ul>
-        <p className="mt-2">
-          請注意，`transitionEffect` 是設定在 `BannerBlock` 組件本身，而不是在每個 `BannerItem` 內部。
-        </p>
+        <pre className="bg-blue-100 p-4 rounded-md text-sm mb-4"><code>&lt;BannerBlock data=&quot;填寫 BannerItem 陣列&quot; transitionEffect=&quot;slide&quot; transitionDuration={500} /&gt;</code></pre>
+        <h2 className="text-2xl font-bold mb-4">BannerBlock 屬性說明</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-blue-100 border border-blue-300 rounded-lg shadow-sm">
+            <thead>
+              <tr className="bg-blue-200 text-blue-800 uppercase text-sm leading-normal">
+                <th className="py-3 px-6 text-left">屬性 (Property)</th>
+                <th className="py-3 px-6 text-left">說明 (Description)</th>
+                <th className="py-3 px-6 text-left">可接受的值 (Accepted Values)</th>
+              </tr>
+            </thead>
+            <tbody className="text-blue-700 text-sm font-light">
+              <tr className="border-b border-blue-200 hover:bg-blue-50">
+                <td className="py-3 px-6 text-left whitespace-nowrap font-medium">`data`</td>
+                <td className="py-3 px-6 text-left">
+                  一個 `BannerItem` 物件陣列，定義輪播的內容。可參考本檔案中 `backgroundBanners` 、 `imageBanners`
+                </td>
+                <td className="py-3 px-6 text-left">`BannerItem[]`</td>
+              </tr>
+              <tr className="border-b border-blue-200 hover:bg-blue-50">
+                <td className="py-3 px-6 text-left whitespace-nowrap font-medium">`transitionEffect`</td>
+                <td className="py-3 px-6 text-left">
+                  控制輪播的轉場模式。
+                  請注意，此屬性設定在 `BannerBlock` 組件本身，而非每個 `BannerItem` 內部。
+                </td>
+                <td className="py-3 px-6 text-left">`&quot;slide&quot;` (預設) | `&quot;fade&quot;`</td>
+              </tr>
+              <tr className="border-b border-blue-200 hover:bg-blue-50">
+                <td className="py-3 px-6 text-left whitespace-nowrap font-medium">`transitionDuration`</td>
+                <td className="py-3 px-6 text-left">
+                  輪播轉場動畫的持續時間 (毫秒)。
+                </td>
+                <td className="py-3 px-6 text-left">`number` (例如 `500` 代表 0.5 秒)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div className="mb-20">

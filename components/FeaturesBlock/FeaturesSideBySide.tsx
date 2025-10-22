@@ -11,7 +11,7 @@ const FeaturesSideBySide: React.FC<FeaturesSideBySideProps> = ({ data }) => {
   const { title, subtitle, features, sideImage } = data;
 
   return (
-    <div className="bg-white py-16">
+    <section className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">{title}</h2>
         <p className="text-xl text-gray-600 text-center mb-12">{subtitle}</p>
@@ -46,7 +46,7 @@ const FeaturesSideBySide: React.FC<FeaturesSideBySideProps> = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

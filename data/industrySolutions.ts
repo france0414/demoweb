@@ -15,7 +15,7 @@ export const MainIndustrySolutions = {
       title: '智慧製造',
       description: '透過物聯網與大數據分析，提升生產效率與品質。',
       ctaHref: '/solutions/smart-manufacturing',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=1',
+      largeImageUrl: 'https://picsum.photos/1920/700?random=20',
     },
     {
       id: 'is2',
@@ -23,7 +23,7 @@ export const MainIndustrySolutions = {
       title: '醫療健康',
       description: '數位化病歷管理與遠距醫療服務，優化患者體驗。',
       ctaHref: '/solutions/healthcare',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=2',
+      largeImageUrl: 'https://picsum.photos/1920/700?random=12',
     },
     {
       id: 'is3',
@@ -31,7 +31,7 @@ export const MainIndustrySolutions = {
       title: '教育科技',
       description: '互動式學習平台與個性化教學，激發學生潛力。',
       ctaHref: '/solutions/education-tech',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=3',
+      largeImageUrl: 'https://picsum.photos/1920/700?random=30',
     },
     {
       id: 'is4',
@@ -39,7 +39,7 @@ export const MainIndustrySolutions = {
       title: '智慧零售',
       description: '精準顧客分析與智能庫存管理，創造全新購物體驗。',
       ctaHref: '/solutions/smart-retail',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=4',
+      largeImageUrl: 'https://picsum.photos/1920/700?random=40',
     },
     {
       id: 'is5',
@@ -47,7 +47,7 @@ export const MainIndustrySolutions = {
       title: '金融服務',
       description: '安全高效的數位金融解決方案，助力企業轉型。',
       ctaHref: '/solutions/finance',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=5',
+      largeImageUrl: 'https://picsum.photos/1920/700?random=50',
     },
     {
       id: 'is6',
@@ -55,7 +55,7 @@ export const MainIndustrySolutions = {
       title: '智慧交通',
       description: '優化交通流量，提升出行效率與安全性。',
       ctaHref: '/solutions/smart-transportation',
-      largeImageUrl: 'https://picsum.photos/1920/1080?random=6',
+      largeImageUrl: 'https://picsum.photos/1920/700?random=60',
     },
   ],
   ctaText: '查看所有解決方案',

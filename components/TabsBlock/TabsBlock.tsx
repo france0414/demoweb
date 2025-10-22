@@ -60,7 +60,7 @@ const TabsBlock: React.FC<TabsBlockProps> = ({
   }
 
   return (
-    <div className={mainContainerClasses}>
+    <section className={mainContainerClasses}>
       {/* Tab Navigation */}
       <div className={position === 'left' ? 'md:w-1/4' : 'w-full'}>
         <div className={tabListClasses}>
@@ -113,7 +113,7 @@ const TabsBlock: React.FC<TabsBlockProps> = ({
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

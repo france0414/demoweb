@@ -1,6 +1,6 @@
 import React from 'react';
 import FeaturesBlock from './FeaturesBlock';
-import { FeaturesContent, FeatureItem } from '@/data/features';
+import { FeaturesContent } from '@/data/features';
 import CodeAccordion from '@/components/shared/CodeAccordion'; // Import CodeAccordion
 
 const defaultFeaturesExample: FeaturesContent = {
@@ -96,42 +96,42 @@ const FeaturesShowcase: React.FC = () => {
     {
       property: 'id: string',
       description: '每個特色項目的唯一識別碼。',
-      usage: '內部識別，確保每個項目都是獨特的。',
+      acceptedValues: 'string',
     },
     {
       property: 'title: string',
       description: '特色區塊或特色項目的標題。',
-      usage: '簡潔傳達區塊或項目的核心訊息。',
+      acceptedValues: 'string',
     },
     {
       property: 'subtitle: string',
       description: '特色區塊的副標題。',
-      usage: '進一步解釋標題，提供更多背景資訊。',
+      acceptedValues: 'string',
     },
     {
       property: 'features: FeatureItem[]',
       description: '特色項目陣列，每個項目可以是圖標或圖片。',
-      usage: '定義要顯示的具體特色列表。',
+      acceptedValues: '`FeatureItem[]` (陣列)',
     },
     {
       property: 'iconName?: string',
-      description: 'Lucide Icon 的名稱 (例如 "Zap")，用於顯示圖標。',
-      usage: '當特色項目為圖標類型時使用。',
+      description: 'Lucide Icon 的名稱 (例如 &quot;Zap&quot;)，用於顯示圖標。',
+      acceptedValues: 'string (Lucide Icon 名稱)',
     },
     {
       property: 'imageUrl?: string',
       description: '圖片的 URL，用於顯示圖片。',
-      usage: '當特色項目為圖片類型時使用。',
+      acceptedValues: 'string (圖片 URL)',
     },
     {
       property: 'description: string',
       description: '特色項目的簡短描述。',
-      usage: '解釋特色項目的具體內容。',
+      acceptedValues: 'string',
     },
     {
       property: 'sideImage?: string',
       description: '側邊圖片的 URL，用於 FeaturesSideBySide 佈局。',
-      usage: '在側邊圖片佈局中，作為主要視覺元素顯示。',
+      acceptedValues: 'string (圖片 URL)',
     },
   ];
 
@@ -140,27 +140,36 @@ const FeaturesShowcase: React.FC = () => {
       <h1 className="text-5xl font-extrabold text-center mb-8 text-gray-900">FeaturesBlock 組件展示</h1>
 
       <div className="mb-16 p-6 bg-blue-50 border-l-4 border-blue-400 text-blue-800 rounded-md">
-        <h2 className="text-2xl font-bold mb-2">FeaturesBlock `version` 屬性說明</h2>
-        <p className="mb-2">
-          `FeaturesBlock` 組件可以透過 `version` 屬性來切換不同的佈局樣式。可用的版本包括：
-        </p>
-        <ul className="list-disc list-inside ml-4">
-          <li>
-            <strong>`"default"` (預設佈局)</strong>: 這是最基本的網格佈局，每個特色項目以卡片形式呈現。
-            <pre className="bg-blue-100 p-2 rounded-md text-sm mt-1"><code>&lt;FeaturesBlock data={'{...}'} version="default" /&gt;</code></pre>
-          </li>
-          <li>
-            <strong>`"side-by-side"` (側邊圖片佈局)</strong>: 顯示一個主要圖片在左側，而特色項目列表在右側。
-            <pre className="bg-blue-100 p-2 rounded-md text-sm mt-1"><code>&lt;FeaturesBlock data={'{...}'} version="side-by-side" /&gt;</code></pre>
-          </li>
-          <li>
-            <strong>`"icon-grid"` (圖標網格佈局)</strong>: 專為只顯示圖標和簡短描述的網格佈局設計。
-            <pre className="bg-blue-100 p-2 rounded-md text-sm mt-1"><code>&lt;FeaturesBlock data={'{...}'} version="icon-grid" /&gt;</code></pre>
-          </li>
-        </ul>
-        <p className="mt-2">
-          請根據您的內容和設計需求選擇合適的 `version`。
-        </p>
+        <pre className="bg-blue-100 p-4 rounded-md text-sm mb-4"><code>&lt;FeaturesBlock data={/* 填寫 FeaturesContent 物件 */} version=&quot;default&quot; /&gt;</code></pre>
+        <h2 className="text-2xl font-bold mb-4">FeaturesBlock 屬性說明</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-blue-100 border border-blue-300 rounded-lg shadow-sm">
+            <thead>
+              <tr className="bg-blue-200 text-blue-800 uppercase text-sm leading-normal">
+                <th className="py-3 px-6 text-left">屬性 (Property)</th>
+                <th className="py-3 px-6 text-left">說明 (Description)</th>
+                <th className="py-3 px-6 text-left">可接受的值 (Accepted Values)</th>
+              </tr>
+            </thead>
+            <tbody className="text-blue-700 text-sm font-light">
+              <tr className="border-b border-blue-200 hover:bg-blue-50">
+                <td className="py-3 px-6 text-left whitespace-nowrap font-medium">`data`</td>
+                <td className="py-3 px-6 text-left">
+                  一個 `FeaturesContent` 物件，定義特色區塊的內容。
+                  可參考本檔案中 `defaultFeaturesExample`、`sideBySideFeaturesExample` 或 `iconGridFeaturesExample` 變數的資料結構。
+                </td>
+                <td className="py-3 px-6 text-left">`FeaturesContent` 物件</td>
+              </tr>
+              <tr className="border-b border-blue-200 hover:bg-blue-50">
+                <td className="py-3 px-6 text-left whitespace-nowrap font-medium">`version`</td>
+                <td className="py-3 px-6 text-left">
+                  控制 FeaturesBlock 的佈局樣式。
+                </td>
+                <td className="py-3 px-6 text-left">`&quot;default&quot;` | `&quot;side-by-side&quot;` | `&quot;icon-grid&quot;`</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {/* Default FeaturesBlock Example */}
@@ -197,7 +206,7 @@ const FeaturesShowcase: React.FC = () => {
             <tr className="bg-gray-200 text-gray-700 uppercase text-sm leading-normal">
               <th className="py-3 px-6 text-left">屬性 (Property)</th>
               <th className="py-3 px-6 text-left">說明 (Description)</th>
-              <th className="py-3 px-6 text-left">用途 (Usage)</th>
+              <th className="py-3 px-6 text-left">可接受的值 (Accepted Values)</th>
             </tr>
           </thead>
           <tbody className="text-gray-600 text-sm font-light">
@@ -205,7 +214,7 @@ const FeaturesShowcase: React.FC = () => {
               <tr key={index} className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="py-3 px-6 text-left whitespace-nowrap font-medium">{exp.property}</td>
                 <td className="py-3 px-6 text-left">{exp.description}</td>
-                <td className="py-3 px-6 text-left">{exp.usage}</td>
+                <td className="py-3 px-6 text-left">{exp.acceptedValues}</td>
               </tr>
             ))}
           </tbody>

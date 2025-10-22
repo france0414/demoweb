@@ -47,6 +47,12 @@ import { MainIndustrySolutions } from '@/data/industrySolutions';
           </div>
         </div>
 
+          {/* Showcase 2: Default Fullscreen Version */}
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Version: Default (Fullscreen Interactive)</h2>
+            <IndustrySolutionBlock version="default" data={MainIndustrySolutions} />
+          </div>
+
         {/* Code Display */}
         <div className="my-20">
             <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">Usage Code</h2>
@@ -55,11 +61,7 @@ import { MainIndustrySolutions } from '@/data/industrySolutions';
 
       </main>
 
-      {/* Showcase 2: Default Fullscreen Version */}
-      <div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Version: Default (Fullscreen Interactive)</h2>
-        <IndustrySolutionBlock version="default" data={MainIndustrySolutions} />
-      </div>
+
 
     </div>
   );

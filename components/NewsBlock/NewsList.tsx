@@ -24,7 +24,7 @@ const NewsList: React.FC<NewsListProps> = ({ data }) => {
   const { title, articles } = data;
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md">
+    <section className="bg-white p-8 rounded-lg shadow-md">
       <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">{title}</h2>
       <ul className="divide-y divide-gray-200">
         {articles.map(article => (
@@ -34,7 +34,7 @@ const NewsList: React.FC<NewsListProps> = ({ data }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 
