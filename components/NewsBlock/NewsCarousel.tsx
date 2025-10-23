@@ -30,7 +30,7 @@ const NewsCarousel: React.FC<NewsCarouselProps> = ({ data }) => {
       >
         {items.map((item) => (
           <SwiperSlide key={item.id} className="h-auto !flex flex-col">
-            <NewsCard item={item} /> // Pass item instead of article
+            <NewsCard item={item} /> 
           </SwiperSlide>
         ))}
       </SwiperWrapper>

@@ -7,6 +7,7 @@ import { ProductGridList } from '@/components/ProductListBlock/ProductGridList';
 import { Category, Product } from '@/app/types/entities';
 import { mockCategories } from '@/data/mock-categories';
 import { mockProducts } from '@/data/mock-products';
+import { productPageContent } from '@/data/product-page-content';
 
 interface CategoryPageProps {
   params: {
@@ -65,11 +66,11 @@ function buildBreadcrumbs(category: Category): { label: string; path: string }[]
   }
 
   // Add home link
-  breadcrumbs.unshift({ label: '首頁', path: '/' });
+  breadcrumbs.unshift({ label: productPageContent.home, path: '/' });
 
   // Insert '產品中心' after '首頁' if it's a product category page
   if (breadcrumbs.length > 1 && breadcrumbs[1].path.startsWith('/products')) {
-    breadcrumbs.splice(1, 0, { label: '產品中心', path: '/products' });
+    breadcrumbs.splice(1, 0, { label: productPageContent.productCenter, path: '/products' });
   }
 
   return breadcrumbs;
@@ -91,18 +92,18 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     <main>
       <PageHeaderBlock title={category.name} settings={category.banner} />
 
-      <div className="container mx-auto px-4">
+      <div className="container max-w-7xl mx-auto px-4">
         <Breadcrumbs items={breadcrumbItems} />
 
         {category.contentBlocks && category.contentBlocks.length > 0 && (
           <section aria-labelledby="category-intro">
-            <h2 id="category-intro" className="sr-only">{category.name} 介紹</h2>
+            <h2 id="category-intro" className="sr-only">{category.name} {productPageContent.introduction}</h2>
             <BlockRenderer blocks={category.contentBlocks} />
           </section>
         )}
 
         <section aria-labelledby="category-products" className="mt-8">
-          <h2 id="category-products" className="sr-only">{category.name} 產品列表</h2>
+          <h2 id="category-products" className="sr-only">{category.name} {productPageContent.productList}</h2>
           <ProductGridList products={products} layoutSettings={category.layout} />
         </section>
       </div>

@@ -47,7 +47,7 @@ export const HomePageConfig: HomePageConfigType = {
     },
     {
       name: "IndustrySolutionBlock",
-      version: "carousel", // Changed to carousel for now, as interactive-fullscreen is complex
+      version: "Default", // Changed to carousel for now, as interactive-fullscreen is complex
       sectionData: IndustrySolutionSection // Using sectionData
     },
     {

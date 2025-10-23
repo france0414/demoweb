@@ -5,6 +5,7 @@ import { PageHeaderBlock } from '@/components/PageHeaderBlock/PageHeaderBlock';
 import { BlockRenderer } from '@/components/BlockRenderer/BlockRenderer';
 import Link from 'next/link';
 import Image from 'next/image';
+import DynamicIcon from '@/components/shared/DynamicIcon';
 
 interface NewsDynamicPageProps {
   params: {
@@ -35,11 +36,12 @@ export default function NewsDynamicPage({ params }: NewsDynamicPageProps) {
 
           {NewsSection.categories.length > 0 && (
             <div className="mb-8 max-w-3xl mx-auto">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">新聞分類</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">新聞分類</h2>
               <div className="flex flex-wrap gap-2">
                 {NewsSection.categories.map(category => (
                   <Link key={category.id} href={`/${NewsSection.slug}/${category.slug}`} passHref>
-                    <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 cursor-pointer">
+                    <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 cursor-pointer flex items-center">
+                      {category.iconName && <DynamicIcon iconName={category.iconName} className="inline-block mr-2" />}
                       {category.name}
                     </span>
                   </Link>
@@ -82,8 +84,8 @@ export default function NewsDynamicPage({ params }: NewsDynamicPageProps) {
   // If slugPath has 2 elements, the last one is an item slug.
   // This logic might need to be more robust for multi-level categories.
 
-  let currentCategory = null;
-  let currentItem = null;
+  let currentCategory: ContentCategory | null = null;
+  let currentItem: ContentItem | null = null;
 
   if (slugPath.length === 1) {
     // Potentially a category page

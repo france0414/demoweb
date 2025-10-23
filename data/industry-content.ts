@@ -36,7 +36,7 @@ export const mockIndustryItems: ContentItem[] = [
     publishDate: '2023-09-01',
     image: 'https://picsum.photos/seed/smart-factory/800/500',
     shortDescription: '整合物聯網、大數據與AI，打造高效自動化生產線。',
-    iconName: 'Robot',
+    iconName: 'Factory',
     contentBlocks: [
       {
         type: 'markdown',
@@ -52,6 +52,23 @@ export const mockIndustryItems: ContentItem[] = [
     categoryId: 'digital-transformation',
     publishDate: '2023-08-15',
     image: 'https://picsum.photos/seed/cloud-transform/800/500',
+    shortDescription: '協助企業將傳統IT架構遷移至雲端，提升靈活性與擴展性。',
+    iconName: 'CloudUpload',
+    contentBlocks: [
+      {
+        type: 'markdown',
+        content: '## 企業雲端轉型服務\n\n面對快速變化的市場環境，企業數位轉型已成為必然趨勢。我們的企業雲端轉型服務，旨在協助客戶將現有的IT基礎設施、應用程式和數據安全、高效地遷移至雲端平台，並提供全面的雲端管理與優化服務。\n\n**服務內容：**\n\n*   **雲端策略規劃：** 根據企業需求，制定客製化的雲端轉型策略與路線圖。\n*   **雲端架構設計：** 設計符合業務需求且具備高可用性、高擴展性、高安全性的雲端架構。\n*   **數據遷移與整合：** 確保數據在遷移過程中的完整性與安全性，並實現多雲或混合雲環境下的數據整合。\n*   **雲端應用開發與優化：** 協助企業開發雲原生應用，並對現有應用進行雲端優化。\n*   **雲端安全與合規：** 提供全面的雲端安全解決方案，確保符合行業法規與標準。\n\n**客戶價值：**\n\n降低IT成本、提升營運效率、加速創新、增強業務彈性與韌性。\n',
+        layout: { type: 'default' }
+      },
+    ],
+  },
+  {
+    id: 'solution-3',
+    title: '企業雲端轉型服務3',
+    slug: 'enterprise-cloud-transformation3',
+    categoryId: 'digital-transformation3',
+    publishDate: '2023-08-15',
+    image: 'https://picsum.photos/seed/industry-banner/800/500',
     shortDescription: '協助企業將傳統IT架構遷移至雲端，提升靈活性與擴展性。',
     iconName: 'CloudUpload',
     contentBlocks: [

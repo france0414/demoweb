@@ -13,7 +13,7 @@ export default function ProductsLandingPage() {
     <main>
       <PageHeaderBlock title="產品中心" settings={{ showBackground: true, backgroundColor: '#e0f7fa' }} />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container max-w-7xl mx-auto px-4 py-8">
         <Breadcrumbs items={breadcrumbItems} />
 
         <section aria-labelledby="top-categories-heading" className="mt-8">

@@ -11,7 +11,7 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ item }) => {
-  const { title, shortDescription, image, publishDate, categoryId, icon } = item;
+  const { title, shortDescription, image, publishDate, categoryId, iconName } = item;
   const itemLink = `/${NewsSection.slug}/${item.slug}`; // Simplified link for now
 
   return (
@@ -46,13 +46,13 @@ const NewsCard: React.FC<NewsCardProps> = ({ item }) => {
         {itemLink ? (
           <Link href={itemLink} passHref>
             <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors duration-200">
-              {icon && <DynamicIcon name={icon} className="inline-block mr-2" />} {/* Render icon */}
+              {iconName && <DynamicIcon iconName={iconName} className="inline-block mr-2" />} {/* Render icon */}
               {title}
             </h3>
           </Link>
         ) : (
           <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">
-              {icon && <DynamicIcon name={icon} className="inline-block mr-2" />} {/* Render icon */}
+              {iconName && <DynamicIcon iconName={iconName} className="inline-block mr-2" />} {/* Render icon */}
               {title}
           </h3>
         )}
