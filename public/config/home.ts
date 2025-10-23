@@ -1,8 +1,13 @@
+import { ContentSection } from '@/app/types/content';
+import { NewsSection } from '@/data/news-content'; // New import
+import { IndustrySolutionSection } from '@/data/industry-content'; // New import
+
 // 定義積木配置的介面
 export interface BlockConfig {
   name: string;
   version: string;
-  dataKey: string;
+  dataKey?: string; // Made optional
+  sectionData?: ContentSection; // New property for ContentSection data
   navigationDataKey?: string;
 }
 
@@ -42,8 +47,8 @@ export const HomePageConfig: HomePageConfigType = {
     },
     {
       name: "IndustrySolutionBlock",
-      version: "interactive-fullscreen",
-      dataKey: "MainIndustrySolutions"
+      version: "carousel", // Changed to carousel for now, as interactive-fullscreen is complex
+      sectionData: IndustrySolutionSection // Using sectionData
     },
     {
       name: "ProductListBlock",
@@ -55,7 +60,7 @@ export const HomePageConfig: HomePageConfigType = {
       name: "NewsBlock",
       // 可選版本: "grid" | "list" | "carousel"
       version: "carousel",
-      dataKey: "MainNewsContent"
+      sectionData: NewsSection // Using sectionData
     },
     {
       name: "AboutBlock",

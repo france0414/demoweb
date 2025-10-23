@@ -1,18 +1,9 @@
 import React from 'react';
-import ProductCard from './ProductCard';
+import { ProductCard } from './ProductCard'; // Changed to named import
+import { Product } from '@/app/types/entities'; // Import global Product interface
 
 // --- 介面定義 ---
-interface Product {
-  id: string;
-  name: string;
-  model?: string;
-  description?: string;
-  price: string;
-  imageUrl: string;
-  category?: string[];
-  link?: string;
-}
-
+// Updated to use global Product interface
 interface ProductListData {
   title: string;
   products: Product[];
@@ -28,7 +19,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ data }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {products.map(product => <ProductCard key={product.id} product={product} />)}
+      {products.map(product => <ProductCard key={product.id} product={product} layout="vertical" />)} {/* Added layout prop */}
     </div>
   );
 };

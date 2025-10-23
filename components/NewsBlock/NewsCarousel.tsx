@@ -1,35 +1,19 @@
-'use client';
-
 import React from 'react';
 import SwiperWrapper from '@/components/shared/SwiperWrapper';
 import { SwiperSlide } from 'swiper/react';
 import NewsCard from './NewsCard';
-
-interface Article {
-  id: number;
-  title: string;
-  summary: string;
-  imageUrl?: string;
-  date?: string;
-  category?: string[];
-  link?: string;
-}
-
-interface NewsData {
-  title: string;
-  articles: Article[];
-}
+import { ContentSection } from '@/app/types/content'; // New import
 
 interface NewsCarouselProps {
-  data: NewsData;
+  data: ContentSection; // Updated data type
 }
 
 const NewsCarousel: React.FC<NewsCarouselProps> = ({ data }) => {
-  const { title, articles } = data;
+  const { name, items } = data; // Use name for title, items for articles
 
   return (
     <section className="bg-white p-8 rounded-lg shadow-md">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">{title}</h2>
+      <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">{name}</h2>
       <SwiperWrapper
         spaceBetween={24}
         slidesPerView={1}
@@ -44,9 +28,9 @@ const NewsCarousel: React.FC<NewsCarouselProps> = ({ data }) => {
           },
         }}
       >
-        {articles.map((article) => (
-          <SwiperSlide key={article.id} className="h-auto !flex flex-col">
-            <NewsCard article={article} />
+        {items.map((item) => (
+          <SwiperSlide key={item.id} className="h-auto !flex flex-col">
+            <NewsCard item={item} /> // Pass item instead of article
           </SwiperSlide>
         ))}
       </SwiperWrapper>

@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { InquiryCartProvider } from "./context/InquiryCartContext";
+import { InquiryCartButton } from "@/components/InquiryCartButton/InquiryCartButton"; // Import the button
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Geist({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -27,7 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <InquiryCartProvider>
+          {children}
+          <InquiryCartButton /> {/* Add the floating inquiry cart button */}
+        </InquiryCartProvider>
       </body>
     </html>
   );

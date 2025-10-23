@@ -31,6 +31,7 @@ interface SwiperWrapperProps {
   autoplay?: boolean | { delay?: number; disableOnInteraction?: boolean; }; // Add autoplay prop
 
   effect?: 'slide' | 'fade'; // Add effect prop
+  speed?: number; // New: Add speed prop
 }
 
 const SwiperWrapper: React.FC<SwiperWrapperProps> = ({

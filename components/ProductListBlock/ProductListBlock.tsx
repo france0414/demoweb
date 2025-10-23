@@ -7,10 +7,11 @@ import ProductCarousel from './ProductCarousel';
 // --- 介面定義 ---
 import { ProductContent } from '@/data/products';
 import { NavigationContent } from '@/data/navigation';
+import { Product as GlobalProduct } from '@/app/types/entities'; // Import GlobalProduct
 
 interface ProductListBlockProps {
   version: 'grid' | 'carousel';
-  data: ProductContent;
+  data: { title: string; products: GlobalProduct[]; }; // Updated data type
   navigationData?: NavigationContent;
 }
 // ---------------------------

@@ -1,88 +1,52 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link'; // 導入 Link 元件
-import BaseCard from '@/components/shared/BaseCard';
+'use client';
 
-// 定義 Product 介面，包含更多欄位
-interface Product {
-  id: string;
-  name: string;
-  model?: string; // 型號
-  description?: string; // 簡述
-  price: string; // 價格或詢價按鈕文字
-  imageUrl: string;
-  category?: string[]; // 分類標籤
-  link?: string; // 更多按鈕的連結
-}
+import Image from 'next/image';
+import { Product } from '@/app/types/entities';
+import { useInquiryCart } from '@/app/context/InquiryCartContext'; // Import the hook
 
 interface ProductCardProps {
   product: Product;
+  layout: 'vertical' | 'horizontal'; // 'vertical' for image top, text bottom; 'horizontal' for image left, text right
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { name, model, description, price, imageUrl, category, link } = product;
+export function ProductCard({ product, layout }: ProductCardProps) {
+  const isVertical = layout === 'vertical';
+  const { addItem } = useInquiryCart(); // Use the inquiry cart hook
+
+  const handleAddToInquiry = () => {
+    addItem(product.id);
+    alert(`${product.name} 已加入詢價車！`); // Simple feedback
+  };
 
   return (
-    <BaseCard className="flex flex-col">
-      {/* 圖片、標題和描述包裹在一個 Link 中 */}
-      {link ? (
-        <Link href={link} passHref>
-          <div className="relative w-full h-48 bg-gray-100 overflow-hidden rounded-t-lg cursor-pointer">
-            <Image 
-              src={imageUrl}
-              alt={name}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        </Link>
-      ) : (
-        <div className="relative w-full h-48 bg-gray-100 overflow-hidden rounded-t-lg">
-          <Image 
-            src={imageUrl}
-            alt={name}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      )}
-
-      <div className="p-4 flex flex-col flex-grow">
-        {link ? (
-          <Link href={link} passHref>
-            <h3 className="text-lg font-semibold text-gray-800 mb-1 line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors duration-200">{name}</h3>
-          </Link>
-        ) : (
-          <h3 className="text-lg font-semibold text-gray-800 mb-1 line-clamp-2">{name}</h3>
-        )}
-        
-        {model && <p className="text-sm text-gray-500 mb-2">型號: {model}</p>}
-        {description && <p className="text-sm text-gray-600 mb-3 line-clamp-3">{description}</p>}
-        
-        <div className="flex flex-wrap gap-1 mb-3">
-          {category?.map((cat, index) => (
-            <Link key={index} href={`/category/${cat}`} passHref>
-              <span className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full cursor-pointer hover:bg-blue-200 transition-colors duration-200">
-                {cat}
-              </span>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-auto flex items-center justify-between pt-2">
-          <p className="text-xl font-bold text-indigo-600">{price}</p>
-          {link && (
-            <Link 
-              href={link}
-              className="text-sm text-blue-600 hover:text-blue-800 font-medium"
-            >
-              更多 &rarr;
-            </Link>
-          )}
+    <div className={`flex ${isVertical ? 'flex-col' : 'flex-row'} bg-white shadow-lg rounded-lg overflow-hidden h-full`}>
+      <div className={`${isVertical ? 'w-full h-48' : 'w-1/3 h-auto'} relative flex-shrink-0`}>
+        <Image
+          src={product.images[0] || '/placeholder-product.jpg'} // Use first image or a placeholder
+          alt={product.name}
+          layout="fill"
+          objectFit="cover"
+          className="transition-transform duration-300 hover:scale-105"
+        />
+      </div>
+      <div className={`p-4 flex flex-col ${isVertical ? '' : 'w-2/3'}`}>
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.name}</h3>
+        <p className="text-gray-600 text-sm mb-4 flex-grow">{product.shortDescription}</p>
+        <div className="mt-auto flex flex-col sm:flex-row gap-2"> {/* Added flex for buttons */}
+          <a
+            href={`/product/${product.id}`} // Link to product detail page
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-md transition-colors duration-300 text-center"
+          >
+            查看詳情
+          </a>
+          <button
+            onClick={handleAddToInquiry}
+            className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded-md transition-colors duration-300 text-center"
+          >
+            加入詢價車
+          </button>
         </div>
       </div>
-    </BaseCard>
+    </div>
   );
-};
-
-export default ProductCard;
+}

@@ -3,23 +3,15 @@
 import React from 'react';
 import SwiperWrapper from '@/components/shared/SwiperWrapper';
 import { SwiperSlide } from 'swiper/react';
-import ProductCard from './ProductCard';
+import { ProductCard } from './ProductCard'; // Changed to named import
+
+import { Product } from '@/app/types/entities'; // Import global Product interface
 
 // --- 介面定義 ---
-interface Product {
-  id: string;
-  name: string;
-  model?: string;
-  description?: string;
-  price: string;
-  imageUrl: string;
-  category?: string[];
-  link?: string;
-}
-
+// Updated to use global Product interface
 interface ProductListData {
   title: string;
-  products: Product[];
+  products: Product[]; // Now expects global Product type
 }
 
 interface ProductCarouselProps {
@@ -47,7 +39,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ data }) => {
     >
       {products.map((product) => (
         <SwiperSlide key={product.id} className="h-auto !flex flex-col pb-4">
-          <ProductCard product={product} />
+          <ProductCard product={product} layout="vertical" /> {/* Added layout prop */}
         </SwiperSlide>
       ))}
     </SwiperWrapper>

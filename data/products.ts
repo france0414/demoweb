@@ -1,4 +1,8 @@
-export interface Product {
+import { Product as GlobalProduct } from '@/app/types/entities'; // Import our global Product type
+
+// Define a local Product type that matches the existing data structure
+// This will be used to transform the existing data
+interface LocalProduct {
   id: string;
   name: string;
   model: string;
@@ -13,10 +17,11 @@ export interface Product {
 
 export interface ProductContent {
   title: string;
-  products: Product[];
+  products: LocalProduct[]; // Use the local product type for the raw data
 }
 
-export const MainProductContent: ProductContent = {
+// Original data
+const rawMainProductContent: ProductContent = {
   title: "我們的熱門產品",
   products: [
     {
@@ -92,4 +97,22 @@ export const MainProductContent: ProductContent = {
       link: "/products/crm-006",
     },
   ],
+};
+
+// Transform the raw data to conform to the GlobalProduct interface
+export const MainProductContent: { title: string; products: GlobalProduct[] } = {
+  title: rawMainProductContent.title,
+  products: rawMainProductContent.products.map(localProduct => ({
+    id: localProduct.id,
+    name: localProduct.name,
+    images: [localProduct.imageUrl], // Map imageUrl to images array
+    shortDescription: localProduct.description,
+    fullDescription: localProduct.description, // Use description for both for now
+    specifications: { // Invent some basic specifications
+      型號: localProduct.model,
+      價格: localProduct.price,
+      類別: localProduct.category.join(', '),
+    },
+    categoryIds: localProduct.category, // Map category to categoryIds
+  })),
 };

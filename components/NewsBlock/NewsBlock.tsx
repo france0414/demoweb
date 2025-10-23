@@ -3,12 +3,12 @@ import NewsCardGrid from './NewsCardGrid';
 import NewsList from './NewsList';
 import NewsCarousel from './NewsCarousel';
 
-import { NewsContent } from '@/data/news';
+import { ContentSection } from '@/app/types/content'; // Changed import
 import { NavigationContent } from '@/data/navigation';
 
 interface NewsBlockProps {
   version: 'grid' | 'list' | 'carousel';
-  data: NewsContent;
+  data: ContentSection; // Changed data type
   navigationData?: NavigationContent;
 }
 
